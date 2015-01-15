@@ -495,6 +495,7 @@ public class Interface extends javax.swing.JDialog {
                 Look.setVisible(true);
                 Items.setVisible(true);
                 winnerFind = true;
+                g.getPlayers().grabItem("superPiss");
             }
             if (g.getPlayers().getPlayerHP() <=0)
             {
@@ -599,6 +600,42 @@ public class Interface extends javax.swing.JDialog {
             jButtonA.setVisible(false);
             jButtonB.setVisible(false);
             g.getPlayers().grabItem("potionCareMin");
+        }
+        //quest from the sewer
+        else if (currentRoom.equals("sewer")){
+            //Figth with rat -- ATTACK SPECIAL
+            //int HP = g.attackSpecial(g.getEnnemiHP());
+            //g.setEnnemiHP(HP);
+            //Ennemi attack Mr Kitten
+            if(g.ennemiHP >0){
+                Random nbRd = new Random();
+                int nextnb = nbRd.nextInt(g.ennemiAD)+1;
+                int i =  g.getPlayers().getPlayerHP() - nextnb;
+                g.getPlayers().setPlayerHP(i);
+            }
+            //Check if there is a winner
+            boolean winnerFind = false;
+            if (g.ennemiHP <= 0){
+                jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
+                jButtonA.setVisible(false);
+                jButtonB.setVisible(false);
+                jButtonC.setVisible(false);
+                Explore.setVisible(true);
+                Help.setVisible(true);
+                Look.setVisible(true);
+                Items.setVisible(true);
+                winnerFind = true;
+                g.getPlayers().grabItem("superPiss");
+            }
+            if (g.getPlayers().getPlayerHP() <=0)
+            {
+                jTextArea1.setText("You loose !! GAME OVER !!");
+                winnerFind = true;
+                //System.exit(1);              
+            }
+            if (!winnerFind){
+                g.fightPeopleIN(this);
+            }
         }
         //quest from the street2
         else if (currentRoom.equals("street2")){
