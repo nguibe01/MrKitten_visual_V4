@@ -424,6 +424,18 @@ public class Interface extends javax.swing.JDialog {
         g.inventory(this);
     }//GEN-LAST:event_ItemsMouseClicked
 
+    private void setABFalse(){
+        jButtonA.setVisible(false);
+        jButtonB.setVisible(false);
+    }
+    
+        private void setABCDFalse () {
+        jButtonA.setVisible(false);
+        jButtonB.setVisible(false);
+        jButtonC.setVisible(false);
+        jButtonD.setVisible(false);
+    }
+    
     /**
      * Evenement when click a A button
      * @param evt 
@@ -440,36 +452,29 @@ public class Interface extends javax.swing.JDialog {
             }
             else{
                 jTextArea1.setText("Hum...Yum !");
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
             }    
         }
         //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
             if (!questBedroom){
                 jTextArea1.setText(ExpInfo.printbedroom_answerA());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse();
             }
             else {
                 jTextArea1.setText(ExpInfo.printbedroom_answerCa());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
             }
         }
         //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the sewer
         else if (currentRoom.equals("sewer")){
@@ -487,8 +492,7 @@ public class Interface extends javax.swing.JDialog {
             boolean winnerFind = false;
             if (g.ennemiHP <= 0){
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
                 jButtonC.setVisible(false);
                 Explore.setVisible(true);
                 Help.setVisible(true);
@@ -510,14 +514,12 @@ public class Interface extends javax.swing.JDialog {
         //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the dory room
         else if (currentRoom.equals("dory")){
@@ -527,30 +529,24 @@ public class Interface extends javax.swing.JDialog {
             }
             else {
                 jTextArea1.setText(ExpInfo.printdory_goodanswerA());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse();
             }
         }
         //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
             g.getPlayers().grabItem("algea");
         }
         //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerA());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
     }//GEN-LAST:event_jButtonAMouseClicked
 
@@ -569,36 +565,29 @@ public class Interface extends javax.swing.JDialog {
             }
             else{
                 jTextArea1.setText("Hum...Yum !"); 
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
             }
         }
         //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
             if (!questBedroom){
                 jTextArea1.setText(ExpInfo.printbedroom_answerB());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse();
             }
             else {
                 jTextArea1.setText(ExpInfo.printbedroom_answerCb());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
             }
         }
         //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
             g.getPlayers().grabItem("potionCareMin");
         }
         //quest from the sewer
@@ -617,8 +606,7 @@ public class Interface extends javax.swing.JDialog {
             boolean winnerFind = false;
             if (g.ennemiHP <= 0){
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
+                setABFalse();
                 jButtonC.setVisible(false);
                 Explore.setVisible(true);
                 Help.setVisible(true);
@@ -640,52 +628,41 @@ public class Interface extends javax.swing.JDialog {
         //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerB());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse();
             }
             else {
                 jTextArea1.setText(ExpInfo.printdory_goodanswerB());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse();
             }
         }
         //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
         //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerB());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
+            setABFalse();
         }
     }//GEN-LAST:event_jButtonBMouseClicked
-
+    
     /**
      * Evenement when click a C button
      * @param evt 
@@ -695,27 +672,18 @@ public class Interface extends javax.swing.JDialog {
         //quest from bedroom
         if(currentRoom.equals("bedroom")){
             jTextArea1.setText(ExpInfo.printbedroom_answerC());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
-            jButtonC.setVisible(false);
-            jButtonD.setVisible(false);
+            setABCDFalse ();
             questBedroom = true;
         }
         //quest from dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerC());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse ();
             }
             else {
                 jTextArea1.setText(ExpInfo.printdory_goodanswerC());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse ();
                 g.getPlayers().grabItem("Artefact Of True Vision");
             }
         }
@@ -730,26 +698,17 @@ public class Interface extends javax.swing.JDialog {
         //quest from bedroom
         if(currentRoom.equals("bedroom")){
             jTextArea1.setText(ExpInfo.printbedroom_answerD());
-            jButtonA.setVisible(false);
-            jButtonB.setVisible(false);
-            jButtonC.setVisible(false);
-            jButtonD.setVisible(false);
+            setABCDFalse ();
         }
         //quest from dory room
         else if (currentRoom.equals("dory")){
             if (!questDory){
                 jTextArea1.setText(ExpInfo.printdory_answerD());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse ();
             }
             else {
                 jTextArea1.setText(ExpInfo.printdory_goodanswerD());
-                jButtonA.setVisible(false);
-                jButtonB.setVisible(false);
-                jButtonC.setVisible(false);
-                jButtonD.setVisible(false);
+                setABCDFalse ();
             }
         }
     }//GEN-LAST:event_jButtonDMouseClicked
