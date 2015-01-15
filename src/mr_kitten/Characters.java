@@ -13,7 +13,7 @@ public class Characters {
     
     //Declare attribut of characters class
     private String name;
-    public int ennemiHP;
+    private static int ennemiHP;
     private int ennemiAD;
     private String talk;
     private String room;
@@ -46,7 +46,7 @@ public class Characters {
      * Get ennemi HP
      * @return 
      */
-    public int getEnnemiHP(){
+    public static int getEnnemiHP(){
         return ennemiHP;
     }
     
