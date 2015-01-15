@@ -429,11 +429,18 @@ public class Interface extends javax.swing.JDialog {
         jButtonB.setVisible(false);
     }
     
-        private void setABCDFalse () {
+    private void setABCDFalse () {
         jButtonA.setVisible(false);
         jButtonB.setVisible(false);
         jButtonC.setVisible(false);
         jButtonD.setVisible(false);
+    }
+    
+    private void showButtons(){
+        Explore.setVisible(true);
+        Help.setVisible(true);
+        Look.setVisible(true);
+        Items.setVisible(true);
     }
     
     /**
@@ -494,10 +501,7 @@ public class Interface extends javax.swing.JDialog {
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
                 setABFalse();
                 jButtonC.setVisible(false);
-                Explore.setVisible(true);
-                Help.setVisible(true);
-                Look.setVisible(true);
-                Items.setVisible(true);
+                showButtons();
                 winnerFind = true;
                 g.getPlayers().grabItem("superPiss");
             }
@@ -608,10 +612,7 @@ public class Interface extends javax.swing.JDialog {
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
                 setABFalse();
                 jButtonC.setVisible(false);
-                Explore.setVisible(true);
-                Help.setVisible(true);
-                Look.setVisible(true);
-                Items.setVisible(true);
+                showButtons();
                 winnerFind = true;
                 g.getPlayers().grabItem("superPiss");
             }

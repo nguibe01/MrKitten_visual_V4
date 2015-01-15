@@ -436,6 +436,103 @@ public class Game
         }
     }
   
+    private String giveChoice (){
+        String choice = ("What would you like?");
+        return choice;   
+    }
+    private String printPiss (){
+        String piss = ("a - superPiss");
+        return piss;
+    }
+    private String printBite(){
+        String bite = (" b - superBite");
+        return bite;
+    }
+    private String printEyes(){
+        String eyes = (" c- puppyEyes");
+        return eyes;
+    }
+    private String printTail(){
+        String tail = (" d - laserTail");
+        return tail;
+    }
+    private String wantChoice(){
+        String charac = ("Enter the character please");
+        return charac;
+    }
+    private String madeTypo(){
+        String typo = ("What the hell did you just say? You are fighting, you take damage");
+        return typo;
+    }
+    private String noPower(){
+        String no = ("You do not have any special attack");
+        return no;
+    }
+    private String noCharac(){
+        String nobody = ("There is no character in this room");
+        return nobody;
+    }
+    private String infoKitten(){
+        String HPKitten =("    *********   \n"
+                + "Mr.Kitten's HP =");
+        return HPKitten;
+    }
+    private String infoEnnemi(){
+        String HPEnnemi=("\nEnnemi's HP=");
+        return HPEnnemi;
+    }
+    private int giveMrKittenHP(){
+        int HP = MrKitten.getPlayerHP();
+        return HP;
+    }
+    private int giveEnnemiHP(){
+        int eHP = Characters.getEnnemiHP();
+        return eHP;
+    }
+    private String choiceAttack(){
+        String whatatt = ("    *********   \n"
+                + " What would you like ? \n"
+                + " a - attack \n"
+                + " b - special attack \n"
+                + " c - items");
+        return whatatt;
+    }
+    private String winMsg(){
+        String win = ("You win! Your HP are now ");
+        return win;
+    }
+    private String msgLoose(){
+        String loose = ("You loose !! GAME OVER !!");
+        return loose;
+    }
+    private String noItem(){
+        String nothing = ("You do not have any healing item");
+        return nothing;
+    }
+    private String poMin(){
+        String poMin = (" a - potionCareMin (+30 HP)");
+        return poMin;
+    }
+    private String poMax(){
+        String poMax = (" b - potionCareMax (+120 HP)");
+        return poMax;
+    }
+    private String poMean(){
+        String poMean = (" c - potionCareMean (+60 HP)");
+        return poMean;
+    }
+    private String alg(){
+        String algae = (" d - algae (+35 HP)");
+        return algae;
+    }
+    private String poBonus(){
+        String poBo = (" e - potionBonus (+100 HP)");
+        return poBo;
+    }
+    private String whatItem(){
+        String it = ("Which item do you want to use?");
+        return it;
+    }
     /*
      * You can fight peoples in the current room  
      */
@@ -458,7 +555,7 @@ public class Game
         }  
         //Check if there is a character in the current room
         if (charactersFind == false) {
-            System.out.println("There is no character in this room");
+            noCharac();
         }
         else {
             //Start the figth
@@ -468,15 +565,12 @@ public class Game
             int MrKittenHP = MrKitten.getPlayerHP();
             System.out.println("Mr Kitten VS "+ ennemi);
             while (MrKittenHP>0 && ennemiHP>0){
-                    System.out.println("    *********   ");
-                    System.out.println("Mr.Kitten's HP = "+MrKittenHP);
-                    System.out.println(ennemi+"'s HP = "+ennemiHP);
-                    System.out.println("    *********   ");
-                    System.out.println (" What would you like ? ");
-                    System.out.println(" a - attack ");
-                    System.out.println(" b - special attack ");
-                    System.out.println(" c - items");
-                    System.out.println(" Enter the character please :");
+                    infoKitten();
+                    giveMrKittenHP();
+                    infoEnnemi();
+                    giveEnnemiHP();
+                    choiceAttack();
+                    wantChoice();
                     Scanner keyboard = new Scanner(System.in);
                     String answer = keyboard.nextLine();
                     //Choose a type of attack
@@ -490,7 +584,7 @@ public class Game
                         case "c": {
                             MrKittenHP=itemsAttack(MrKittenHP);
                             };break;
-                        default:  System.out.println("what the hell did you just say? You are fighting, you take dommage"); break;
+                        default:  madeTypo(); break;
                     }
                 //Ennemi attack the player
                 if(ennemiHP >0){
@@ -501,10 +595,11 @@ public class Game
             }
             //Check if there is a winner
             if (ennemiHP <= 0){
-                System.out.println("You win !!! It remains "+MrKittenHP+" HP");
+                winMsg();
+                giveMrKittenHP();
                 //Players.setPlayerHP(MrKittenHP);
             }else {
-                System.out.println("You loose !! GAME OVER !!");
+                msgLoose();
                 System.exit(1);              
             }
         }
@@ -528,30 +623,30 @@ public class Game
     private int specialAttack(int ennemiHP)
     {
         boolean specialAttack = false;
-        System.out.println(" What would you like ? ");
+        giveChoice();
         //Print different attack
         for (int i = 0;i<MrKitten.getInventory().size();i++){
             Item currentItem = MrKitten.getInventory().get(i);
             if (currentItem.getName().equals("superPiss")){
-                System.out.println(" a - superPiss ");
+                printPiss();
                 specialAttack = true;
             }
             if (currentItem.getName().equals("superBite")){
-                System.out.println(" b - superBite ");
+                printBite();
                 specialAttack = true;
             }
             if (currentItem.getName().equals("puppyEyes")){
-                System.out.println(" c - puppyEyes ");
+                printEyes();
                 specialAttack = true;
             }
             if (currentItem.getName().equals("laserTail")){
-                System.out.println(" d - laserTail ");
+                printTail();
                 specialAttack = true;
             }
         }
         if(specialAttack == true){
             //Choose the special attack
-            System.out.println(" Enter the character please :");
+            wantChoice();
             Scanner keyboard = new Scanner(System.in);
             String answer = keyboard.nextLine();
             switch (answer){
@@ -567,10 +662,10 @@ public class Game
                 case "d": {
                     ennemiHP=ennemiHP-30;
                 };break;
-                default:  System.out.println("what the hell did you just say? You are fighting, you take dommage"); break;
+                default:  madeTypo(); break;
             }
         }else {
-            System.out.println("You have no special attack...");
+            noPower();
         }
         return ennemiHP;
     }
@@ -581,34 +676,34 @@ public class Game
     private int itemsAttack(int playerHP)
     {
         boolean itemsAttack = false;
-        System.out.println(" What would you like to add your HP ? ");
+        whatItem();
         //Print items
         for (int i = 0;i<MrKitten.getInventory().size();i++){
             Item currentItem = MrKitten.getInventory().get(i);
             if (currentItem.getName().equals("potionCareMin")){
-                System.out.println(" a - potionCareMin (+30HP) ");
+                poMin();
                 itemsAttack = true;
             }
             if (currentItem.getName().equals("potionCareMax")){
-                System.out.println(" b - potionCareMax (+120HP)");
+                poMax();
                 itemsAttack = true;
             }
             if (currentItem.getName().equals("potionCareMean")){
-                System.out.println(" c - potionCareMean (+60HP)");
+                poMean();
                 itemsAttack = true;
             }
             if (currentItem.getName().equals("algea")){
-                System.out.println(" d - algea (+35HP)");
+                alg();
                 itemsAttack = true;
             }
             if (currentItem.getName().equals("potionBonus")){
-                System.out.println(" e - potionBonus (+100HP)");
+                poBonus();
                 itemsAttack = true;
             }
         }
         if(itemsAttack == true){
             //Choose items
-            System.out.println(" Enter the character please :");
+            wantChoice();
             Scanner keyboard = new Scanner(System.in);
             String answer = keyboard.nextLine();
             switch (answer){
@@ -632,7 +727,7 @@ public class Game
                     playerHP=playerHP+100;
                     MrKitten.useItem("potionBonus");
                 };break;
-                default:  System.out.println("what the hell did you just say? You are fighting, you take dommage"); break;
+                default:  madeTypo(); break;
             }
             //PlayerHP max = 120 
             if(playerHP >120){

@@ -13,7 +13,7 @@ public class Characters {
     
     //Declare attribut of characters class
     private String name;
-    private int ennemiHP;
+    public int ennemiHP;
     private int ennemiAD;
     private String talk;
     private String room;
