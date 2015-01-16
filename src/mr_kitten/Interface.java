@@ -514,6 +514,9 @@ public class Interface extends javax.swing.JDialog {
             if (!winnerFind){
                 g.fightPeopleIN(this);
             }
+            else {
+                jTextArea1.setText(ExpInfo.printSewer_conclu());
+            }
         }
         //quest from the street2
         else if (currentRoom.equals("street2")){
@@ -597,8 +600,8 @@ public class Interface extends javax.swing.JDialog {
         //quest from the sewer
         else if (currentRoom.equals("sewer")){
             //Figth with rat -- ATTACK SPECIAL
-            //int HP = g.attackSpecial(g.getEnnemiHP());
-            //g.setEnnemiHP(HP);
+            int HP = g.attackSpecial(g.getEnnemiHP(), this);
+            g.setEnnemiHP(HP);
             //Ennemi attack Mr Kitten
             if(g.ennemiHP >0){
                 Random nbRd = new Random();
@@ -687,6 +690,11 @@ public class Interface extends javax.swing.JDialog {
                 setABCDFalse ();
                 g.getPlayers().grabItem("Artefact Of True Vision");
             }
+        }
+        else if (currentRoom.equals("sewer")){
+            jTextArea1.setText("The best healing item you had has been used");
+            Players.setPlayerHP(g.attackItem(g.getPlayers().getPlayerHP(), this));
+            g.fightPeopleIN(this);
         }
     }//GEN-LAST:event_jButtonCMouseClicked
 

@@ -5,6 +5,8 @@ import java.util.Random;
 import java.util.*;
 import java.io.*;
 import java.awt.*;
+import javax.swing.JTextArea;
+import static jdk.nashorn.internal.objects.NativeMath.max;
 
 /**
  *  This class is the main class of the "World of Zuul" application. 
@@ -485,6 +487,7 @@ public class Game
         int HP = MrKitten.getPlayerHP();
         return HP;
     }
+    
     private int giveEnnemiHP(){
         int eHP = Characters.getEnnemiHP();
         return eHP;
@@ -611,35 +614,40 @@ public class Game
     public int attack (int ennemiHP)
     {
         Random nbRd = new Random();
-        int nextnb = nbRd.nextInt(7)+1;
+        int nextnb = nbRd.nextInt(20)+1;
         ennemiHP = ennemiHP - nextnb;
      
         return ennemiHP;
     }
-   
+    
     /**
      * Choose a special attack
      */
     private int specialAttack(int ennemiHP)
     {
         boolean specialAttack = false;
+        int nbSpecAttackPossible = 0;
         giveChoice();
         //Print different attack
         for (int i = 0;i<MrKitten.getInventory().size();i++){
             Item currentItem = MrKitten.getInventory().get(i);
             if (currentItem.getName().equals("superPiss")){
-                printPiss();
+                nbSpecAttackPossible = 1;
+                //jTextArea1.setText(printPiss());
                 specialAttack = true;
             }
             if (currentItem.getName().equals("superBite")){
+                nbSpecAttackPossible += 10;
                 printBite();
                 specialAttack = true;
             }
             if (currentItem.getName().equals("puppyEyes")){
+                nbSpecAttackPossible += 100;
                 printEyes();
                 specialAttack = true;
             }
             if (currentItem.getName().equals("laserTail")){
+                nbSpecAttackPossible += 1000;
                 printTail();
                 specialAttack = true;
             }
@@ -754,9 +762,10 @@ public class Game
             }
         }  
     }
+    
     public void fightPeopleIN(Interface in) 
     { 
-            //Start the figth
+            //Start the fight
             if (ennemi.equals("mrRobot")){
                 sewer=Actors.mrRobotDialog()+" \n";
             }
@@ -1318,5 +1327,51 @@ public class Game
      */
     public void inventory(Interface in){
         MrKitten.printInventoryIN(in);
+    }
+    
+    public int attackSpecial (int ennemiHP, Interface in){
+        int dmgA = 0,dmgB = 0,dmgC = 0,dmgD = 0,mostDamage = 0;
+        for (int i = 0;i<MrKitten.getInventory().size();i++){
+            Item currentItem = MrKitten.getInventory().get(i);
+            if (currentItem.getName().equals("superPiss")){
+                in.jTextArea1.setText("\n \n The Super Piss did so much damage!!");
+                dmgA = 25;
+            }
+            else if (currentItem.getName().equals("superBite")){
+                //jTextArea1.setText(printPiss());
+                dmgB = 30;
+            }
+            else if (currentItem.getName().equals("puppyEyes")){
+                //jTextArea1.setText(printPiss());
+                dmgC = 35;
+            }
+            else if (currentItem.getName().equals("laserTail")){
+                //jTextArea1.setText(printPiss());
+                dmgD = 45;
+            }
+        }
+        mostDamage = Math.max(dmgA,dmgB);
+        mostDamage = Math.max(mostDamage,dmgC);
+        mostDamage = Math.max(mostDamage,dmgD);
+        return ennemiHP - mostDamage;
+    }
+    
+    public int attackItem (int yourHP, Interface in){
+        int heal1 = 0, heal2 = 0, heal3 = 0, bestHeal = 0;
+        for (int i = 0;i<MrKitten.getInventory().size();i++){
+            Item currentItem = MrKitten.getInventory().get(i);
+            if (currentItem.getName().equals("potionCareMin")){
+                heal1 = 25;
+            }
+            else if (currentItem.getName().equals("potionCareMean")){
+                heal2 = 40;
+            }
+            else if (currentItem.getName().equals("potionCareMax")){
+                heal3 = 60;
+            }
+        }
+        bestHeal = Math.max(heal1, heal2);
+        bestHeal = Math.max(bestHeal, heal3);
+        return yourHP + bestHeal;
     }
 }
