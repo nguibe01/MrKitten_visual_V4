@@ -23,7 +23,7 @@ public class Players
     private String currentPlayerRoom;
     private static ArrayList<Item> inventory;
     private int inventoryWeight = 0;
-    private static int maxWeight = 130;
+    private static int maxWeight = 2000;
     private static int playerHP;
     
     /**

@@ -526,6 +526,7 @@ public class Interface extends javax.swing.JDialog {
         //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerA());
+            g.getPlayers().grabItem("blue key");
             setABFalse();
         }
         //quest from the dory room
