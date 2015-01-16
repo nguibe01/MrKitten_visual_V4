@@ -47,7 +47,8 @@ public class ExpInfo {
      * @return 
      */
     protected static String printlivingRoom_answerA(){
-       String answerA = ("/n You totaly nailed it! But you noticed that a key droped on the floor... What could it be?!");
+       String answerA = ("/n You totaly nailed it! But you noticed that a key droped on the floor... What could it be?! \n"
+               +"\n But, you get a blue key !! \n");
        return answerA; 
     }
     

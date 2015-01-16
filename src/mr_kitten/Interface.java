@@ -459,13 +459,13 @@ public class Interface extends javax.swing.JDialog {
             }
             else{
                 jTextArea1.setText("Hum...Yum !");
-                setABFalse();
+                setABCDFalse();
             }    
         }
         //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerA());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
@@ -475,13 +475,13 @@ public class Interface extends javax.swing.JDialog {
             }
             else {
                 jTextArea1.setText(ExpInfo.printbedroom_answerCa());
-                setABFalse();
+                setABCDFalse();
             }
         }
         //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerA());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the sewer
         else if (currentRoom.equals("sewer")){
@@ -499,8 +499,7 @@ public class Interface extends javax.swing.JDialog {
             boolean winnerFind = false;
             if (g.ennemiHP <= 0){
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
-                setABFalse();
-                jButtonC.setVisible(false);
+                setABCDFalse();
                 showButtons();
                 winnerFind = true;
                 g.getPlayers().grabItem("superPiss");
@@ -509,7 +508,7 @@ public class Interface extends javax.swing.JDialog {
             {
                 jTextArea1.setText("You loose !! GAME OVER !!");
                 winnerFind = true;
-                //System.exit(1);              
+                System.exit(0);              
             }
             if (!winnerFind){
                 g.fightPeopleIN(this);
@@ -521,13 +520,13 @@ public class Interface extends javax.swing.JDialog {
         //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerA());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerA());
             g.getPlayers().grabItem("blue key");
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the dory room
         else if (currentRoom.equals("dory")){
@@ -543,18 +542,18 @@ public class Interface extends javax.swing.JDialog {
         //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerA());
-            setABFalse();
+            setABCDFalse();
             g.getPlayers().grabItem("algea");
         }
         //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerA());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerA());
-            setABFalse();
+            setABCDFalse();
         }
     }//GEN-LAST:event_jButtonAMouseClicked
 
@@ -567,19 +566,19 @@ public class Interface extends javax.swing.JDialog {
         //quest from living room
         if(currentRoom.equals("livingRoom")){
             if(quest1 == false) {
-                jTextArea1.setText(ExpInfo.printlivingRoom_answerB());
-                jTextArea1.setText(ExpInfo.printlivingRoom_conclu());
+                jTextArea1.setText(ExpInfo.printlivingRoom_answerB()+"\n"
+                        +ExpInfo.printlivingRoom_conclu()+"\n");
                 quest1 = true;
             }
             else{
                 jTextArea1.setText("Hum...Yum !"); 
-                setABFalse();
+                setABCDFalse();
             }
         }
         //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerB());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the bedroom
         else if (currentRoom.equals("bedroom")){
@@ -589,13 +588,13 @@ public class Interface extends javax.swing.JDialog {
             }
             else {
                 jTextArea1.setText(ExpInfo.printbedroom_answerCb());
-                setABFalse();
+                setABCDFalse();
             }
         }
         //quest from the street1
         else if (currentRoom.equals("street1")){
             jTextArea1.setText(ExpInfo.printStreet1_answerB());
-            setABFalse();
+            setABCDFalse();
             g.getPlayers().grabItem("potionCareMin");
         }
         //quest from the sewer
@@ -614,8 +613,7 @@ public class Interface extends javax.swing.JDialog {
             boolean winnerFind = false;
             if (g.ennemiHP <= 0){
                 jTextArea1.setText("You win !!! It remains "+g.getPlayers().getPlayerHP()+" HP");
-                setABFalse();
-                jButtonC.setVisible(false);
+                setABCDFalse();
                 showButtons();
                 winnerFind = true;
                 g.getPlayers().grabItem("superPiss");
@@ -624,7 +622,7 @@ public class Interface extends javax.swing.JDialog {
             {
                 jTextArea1.setText("You loose !! GAME OVER !!");
                 winnerFind = true;
-                //System.exit(1);              
+                System.exit(0);              
             }
             if (!winnerFind){
                 g.fightPeopleIN(this);
@@ -633,12 +631,12 @@ public class Interface extends javax.swing.JDialog {
         //quest from the street2
         else if (currentRoom.equals("street2")){
             jTextArea1.setText(ExpInfo.printStreet2_answerB());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the petshop
         else if (currentRoom.equals("petshop")){
             jTextArea1.setText(ExpInfo.printPetshop_answerB());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the dory room
         else if (currentRoom.equals("dory")){
@@ -654,17 +652,17 @@ public class Interface extends javax.swing.JDialog {
         //quest from the fish palace
         else if (currentRoom.equals("theFishPalace")){
             jTextArea1.setText(ExpInfo.printfishpalace_answerB());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the star wars
         else if (currentRoom.equals("starWars")){
             jTextArea1.setText(ExpInfo.printvador_answerB());
-            setABFalse();
+            setABCDFalse();
         }
         //quest from the end
         else if (currentRoom.equals("theEnd")){
             jTextArea1.setText(ExpInfo.printend_answerB());
-            setABFalse();
+            setABCDFalse();
         }
     }//GEN-LAST:event_jButtonBMouseClicked
     
@@ -677,7 +675,10 @@ public class Interface extends javax.swing.JDialog {
         //quest from bedroom
         if(currentRoom.equals("bedroom")){
             jTextArea1.setText(ExpInfo.printbedroom_answerC());
-            setABCDFalse ();
+            jButtonA.setVisible(true);
+            jButtonB.setVisible(true);
+            jButtonC.setVisible(false);
+            jButtonD.setVisible(false);
             questBedroom = true;
         }
         //quest from dory room
