@@ -98,7 +98,8 @@ public class ExpInfo {
      * @return 
      */
     protected static String printKitchen_answerA(){
-        String answerA =("\n Oohh, you're sad :( Their is only the half salt butter but it work. You eat it and gain 25 hp !");
+        String answerA =("\n Oohh, you're sad :( Their is only the half salt butter but it work. You eat it and gain 25 hp !"
+                + "\n Be happy !! You win a special attack : superBite \n");
         return answerA;            
     }
     
@@ -268,7 +269,8 @@ public class ExpInfo {
        */
       protected static String printPetshop_answerA() {
           String answerA = (Actors.ratatouilleDialog()
-                  + "\n Congratulations! You just learned Alchemy! You are now able to craft objects using this principle.");
+                  + "\n Congratulations! You just learned Alchemy! You are now able to craft objects using this principle."
+                  + "\n Good, you win a key !! ");
           return answerA;
       }
       

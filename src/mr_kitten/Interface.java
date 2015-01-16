@@ -465,6 +465,7 @@ public class Interface extends javax.swing.JDialog {
         //quest from the kitchen
         else if (currentRoom.equals("kitchen")){
             jTextArea1.setText(ExpInfo.printKitchen_answerA());
+            g.getPlayers().grabItem("superBite");
             setABCDFalse();
         }
         //quest from the bedroom

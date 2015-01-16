@@ -852,18 +852,12 @@ public class Game
                 break;
             //quest from sewer
             case "sewer" :
-                //in.jTextArea1.setText(ExpInfo.printSewer_intro());
                 recupDataPeople(in);
                 fightPeopleIN(in);
                 in.Explore.setVisible(false);
                 in.Help.setVisible(false);
                 in.Look.setVisible(false);
                 in.Items.setVisible(false);
-                //in.next.setVisible(true);
-                //Se battre contre le rat, si victoire lancer la suite
-                //in.jTextArea1.setText(ExpInfo.printSewer_conclu());//ça c'est la suite
-                //ajout de l'item super piss
-                //MrKitten.grabItem("superPiss");
                 break;
             //quest from petshop
             case "petshop" :
@@ -874,6 +868,7 @@ public class Game
             //quest from the Great descent    
             case "theGreatDescent" :
                 in.jTextArea1.setText(ExpInfo.printgreatdescent_intro());
+                MrKitten.grabItem("potionCareMean");
                 break;
             //quest dory
             case "dory" : 
